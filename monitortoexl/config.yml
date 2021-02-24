@@ -1,0 +1,36 @@
+servers:
+   - ip: 1
+     port: '22'
+     user: root
+     pwd: q!
+     command: echo -e "[{name='CPU占用率',value:'$(vmstat | awk 'NR == 3 {print $(NF-4) + $(NF-3)"%"}')'},
+      {name='CPU等待磁盘io',value:'$(vmstat | awk 'NR == 3 {print $(NF-1)"%"}')'},
+      {name='内存总数',value:'$(free -m | awk 'NR == 2 {printf "%.2f", $2/1024}')G'},
+      {name='内存已用',value:'$(free -m | awk 'NR == 2 {print $3}')M'},
+      {name='内存可用',value:'$(free -m | awk 'NR == 2 {print $NF}')M'},
+      {name='内存已使用占比',value:'$(free -m | awk 'NR == 2 {printf "%.2f", ($2-$7)/$2*100}')%'},
+      {name='磁盘',value:'$(df -h)'}]"
+      
+   - ip: 1
+     port: '22'
+     user: root
+     pwd: 1!
+     command: echo -e "[{name='CPU占用率',value:'$(vmstat | awk 'NR == 3 {print $(NF-4) + $(NF-3)"%"}')'},
+      {name='CPU等待磁盘io',value:'$(vmstat | awk 'NR == 3 {print $(NF-1)"%"}')'},
+      {name='内存总数',value:'$(free -m | awk 'NR == 2 {printf "%.2f", $2/1024}')G'},
+      {name='内存已用',value:'$(free -m | awk 'NR == 2 {print $3}')M'},
+      {name='内存可用',value:'$(free -m | awk 'NR == 2 {print $NF}')M'},
+      {name='内存已使用占比',value:'$(free -m | awk 'NR == 2 {printf "%.2f", ($2-$7)/$2*100}')%'},
+      {name='磁盘',value:'$(df -h)'}]"
+      
+   - ip: 1
+     port: '22'
+     user: root
+     pwd: 1!
+     command: echo -e "[{name='CPU占用率',value:'$(vmstat | awk 'NR == 3 {print $(NF-4) + $(NF-3)"%"}')'},
+      {name='CPU等待磁盘io',value:'$(vmstat | awk 'NR == 3 {print $(NF-1)"%"}')'},
+      {name='内存总数',value:'$(free -m | awk 'NR == 2 {printf "%.2f", $2/1024}')G'},
+      {name='内存已用',value:'$(free -m | awk 'NR == 2 {print $3}')M'},
+      {name='内存可用',value:'$(free -m | awk 'NR == 2 {print $NF}')M'},
+      {name='内存已使用占比',value:'$(free -m | awk 'NR == 2 {printf "%.2f", ($2-$7)/$2*100}')%'},
+      {name='磁盘',value:'$(df -h)'}]"
